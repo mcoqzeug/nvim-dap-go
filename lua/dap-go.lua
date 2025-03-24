@@ -90,7 +90,7 @@ local function setup_delve_adapter(dap, config)
         local is_dir = vim.loop.fs_stat(program_absolute).type == "directory"
         if is_dir then
           delve_config.executable.cwd = program_absolute
-        elseif vim.fn.fnamemodify(program_absolute, ":e") == ".go" then -- file extension is '.go'
+        elseif vim.fn.fnamemodify(program_absolute, ":e") == "go" then -- file extension is '.go'
           local parent = vim.fn.fnamemodify(program_absolute, ":p:h")
           if parent ~= nil then
             delve_config.executable.cwd = parent
